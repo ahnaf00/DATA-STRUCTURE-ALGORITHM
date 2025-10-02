@@ -1,6 +1,3 @@
-# Singly Linked List  - Insert At tail
-
-```cpp
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -16,23 +13,16 @@ class Node{
         }
 };
 
-void insert_at_tail(Node* &head, Node* &tail, int val)
+void indert_at_head(Node* &head, int val)
 {
-    Node* newNode = new Node(val);
-
-    if(head == NULL)
-    {
-        head = newNode;
-        tail = newNode;
-    }
-
-    tail->next = newNode;
-    tail = newNode;
+    Node *newNode = new Node(val);
+    newNode->next = head;
+    head = newNode;
 }
 
 void print_list(Node *head)
 {
-    Node *temp = head;
+    Node* temp = head;
     while (temp!=NULL)
     {
         cout << temp->val << " ";
@@ -43,7 +33,6 @@ void print_list(Node *head)
 int main()
 {
     Node *head = NULL;
-    Node *tail = NULL;
 
     int val;
     while (true)
@@ -54,15 +43,10 @@ int main()
             break;
         }
 
-        insert_at_tail(head,tail,val);
+        indert_at_head(head,val);
     }
     
     print_list(head);
 
     return 0;
 }
-```
-
-
-## License
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
